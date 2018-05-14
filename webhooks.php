@@ -23,7 +23,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => 'user id: ' . $text
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -44,7 +44,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			
-			file_put_contents("php://stderr", $result . "\r\n");
+			file_put_contents("php://stderr", "reply result" + $result . "\r\n");
 		}
 	}
 }
