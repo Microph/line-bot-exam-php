@@ -2,6 +2,7 @@
 
 require "vendor/autoload.php";
 require ("botpush.php");
+require ("pub.php");
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'gfFXBM/EbegiS1D3eWlCV64GBADykoNE8YxuDepBcp1+YSqUcdYv0HU8Afzr2rq+qkBrbXF3h+auDA/qRS60wKIN4pcX+bGoc5FQOUWoERdjEHMOpljuKpEh1e2VmocNghJwLR9W9C4yQIHMc8xsKwdB04t89/1O/w1cDnyilFU=';
@@ -46,6 +47,9 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 			
 			file_put_contents("php://stderr", "reply result: " . $result . "\r\n");
+			
+			$Topic = "NodeMCU1" ;
+			getMqttfromlineMsg($Topic,$text);
 		}
 	}
 }
