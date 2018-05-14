@@ -46,8 +46,6 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 			
 			file_put_contents("php://stderr", "reply result: " . $result . "\r\n");
-			
-			send_push_message("test push ja");
 		}
 	}
 }
