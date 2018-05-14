@@ -3,7 +3,7 @@
 require "vendor/autoload.php";
 
 foreach ($_REQUEST as $key => $value){
-   file_put_contents("php://stderr", "post text from esp8266 key: " . $key . "value: " . $value);
+   file_put_contents("php://stderr", "post text from esp8266 key: " . $key . " value: " . $value);
 }
 
 function send_push_message($msg){
