@@ -49,6 +49,7 @@ if (!is_null($events['events'])) {
 			file_put_contents("php://stderr", "reply result: " . $result . "\r\n");
 			
 			$Topic = "NodeMCU1" ;
+			$text = $event['message']['text'];
 			getMqttfromlineMsg($Topic,$text);
 		}
 	}
