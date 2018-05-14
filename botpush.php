@@ -3,6 +3,7 @@
 require "vendor/autoload.php";
 
 $textOut = $_POST["text"];
+file_put_contents("php://stderr", $_POST);
 file_put_contents("php://stderr", "post text from esp8266: " . $textOut);
 
 function send_push_message($msg){
