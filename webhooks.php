@@ -44,6 +44,7 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
+			//file_put_contents("php://stderr", "reply result: " . $result . "\r\n");
 			
 			$Topic = "NodeMCU1" ;
 			$text = $event['message']['text'];
