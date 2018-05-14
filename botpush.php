@@ -1,8 +1,9 @@
 <?php
 
-
-
 require "vendor/autoload.php";
+
+$textOut = $_POST["text"];
+file_put_contents("php://stderr", textOut);
 
 function send_push_message($msg){
 
@@ -21,7 +22,4 @@ function send_push_message($msg){
     file_put_contents("php://stderr", "push message result: " . $response->getHTTPStatus() . ' ' . $response->getRawBody());
 
 }
-
-
-
 
