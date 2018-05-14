@@ -1,7 +1,7 @@
 <?php // callback.php
 
 require "vendor/autoload.php";
-//require ("botpush.php");
+require ("botpush.php");
 require ("pub.php");
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
@@ -44,13 +44,12 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
-			curl_close($ch);
-			
-			file_put_contents("php://stderr", "reply result: " . $result . "\r\n");
 			
 			$Topic = "NodeMCU1" ;
 			$text = $event['message']['text'];
 			getMqttfromlineMsg($Topic,$text);
+			
+			curl_close($ch);
 		}
 	}
 }
