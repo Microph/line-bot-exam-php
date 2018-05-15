@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			$text = $event['message']['text'];
+			$text = $userID . ":" . $event['message']['text'];
 			$Topic = "NodeMCU1" ;
 			getMqttfromlineMsg($Topic,$text);
 		}
