@@ -34,7 +34,7 @@ function send_reply_message($msg, $replyToken){
    $messages = 
    [	
       'type' => 'text',	
-      'text' => '$msg	
+      'text' => $msg	
    ];
    // Make a POST Request to Messaging API to reply to sender
    $url = 'https://api.line.me/v2/bot/message/reply';
