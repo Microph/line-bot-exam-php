@@ -2,9 +2,9 @@
 
 require "vendor/autoload.php";
 
+$replyToken = "";
 foreach ($_POST as $key => $value){
    file_put_contents("php://stderr", "post text from arduino key: " . $key . "\nvalue: " . $value . "\n");
-   $replyToken = "";
    if($key == "replyToken")
    {
       $replyToken = $value;
