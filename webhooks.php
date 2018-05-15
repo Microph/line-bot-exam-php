@@ -1,9 +1,9 @@
 <?php // callback.php
 
 require "vendor/autoload.php";
-require ("botpush.php");
-require ("pub.php");
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+require ("pub.php");
+require ("botpush.php");
 
 // Get POST body content
 $content = file_get_contents('php://input');
