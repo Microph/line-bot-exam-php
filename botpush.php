@@ -2,19 +2,32 @@
 
 require "vendor/autoload.php";
 
+$messagingType = "";
 $replyToken = "";
 foreach ($_POST as $key => $value){
    //file_put_contents("php://stderr", "post text from arduino key: " . $key . "\nvalue: " . $value . "\n");
-   if($key == "replyToken")
+   if($key == "messagingType")
+   {
+      $messagingType = $value;
+   }
+   else if($key == "replyToken")
    {
       $replyToken = $value;
    }
    else if($key == "text")
    { 
-      send_reply_message($value, $replyToken);
+      if($messagingType == "reply")
+      {
+         send_reply_message($value, $replyToken);
+      }
+      else
+      {
+         send_push_message($value);
+      }
    }
 }
 
+//Can only send to one specific account -> need database implementation to store pushIDs
 function send_push_message($msg){
    $access_token = 'gfFXBM/EbegiS1D3eWlCV64GBADykoNE8YxuDepBcp1+YSqUcdYv0HU8Afzr2rq+qkBrbXF3h+auDA/qRS60wKIN4pcX+bGoc5FQOUWoERdjEHMOpljuKpEh1e2VmocNghJwLR9W9C4yQIHMc8xsKwdB04t89/1O/w1cDnyilFU=';
    $channelSecret = '5a4a6b9b0cf3415b8071f4ffbe08fe3d';
