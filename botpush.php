@@ -11,7 +11,7 @@ foreach ($_POST as $key => $value){
    }
    else if($key == "text")
    { 
-      send_reply_message($value, $replyToken)
+      send_reply_message($value, $replyToken);
    }
 }
 
