@@ -8,19 +8,8 @@
    put("https://api.netpie.io/microgear/".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
  }
 
- function getMqttfromlineMsg($Topic,$lineMsg){
-    $pos = strpos($lineMsg, ":");
-    if($pos){
-      $splitMsg = explode(":", $lineMsg);
-      $topic = $splitMsg[0];
-      $msg = $splitMsg[1];
-      pubMqtt($topic,$msg);
-    }
-    else{
-      $topic = $Topic;
-      $msg = $lineMsg;
-      pubMqtt($topic,$msg);
-    }
+ function getMqttfromlineMsg($topic,$lineMsg){
+    pubMqtt($topic,$lineMsg);
   }
  
   function put($url,$tmsg){
