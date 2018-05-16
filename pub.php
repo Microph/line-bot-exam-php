@@ -22,7 +22,7 @@
     $response = curl_exec($ch);
 
     curl_close($ch);
-    echo $response . "\r\n";
+    file_put_contents("php://stderr", "mqtt result: " . $response . "\r\n");
     return $response;
   }
 ?>
