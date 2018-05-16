@@ -10,6 +10,10 @@ foreach ($_POST as $key => $value){
    {
       $messagingType = $value;
    }
+   else if($key == "userID")
+   {
+      $userID = $value;
+   }
    else if($key == "replyToken")
    {
       $replyToken = $value;
@@ -22,16 +26,15 @@ foreach ($_POST as $key => $value){
       }
       else
       {
-         send_push_message($value);
+         send_push_message($value, $userID);
       }
    }
 }
 
 //Can only send to one specific account -> need database implementation to store pushIDs
-function send_push_message($msg){
+function send_push_message($msg, $pushID){
    $access_token = 'gfFXBM/EbegiS1D3eWlCV64GBADykoNE8YxuDepBcp1+YSqUcdYv0HU8Afzr2rq+qkBrbXF3h+auDA/qRS60wKIN4pcX+bGoc5FQOUWoERdjEHMOpljuKpEh1e2VmocNghJwLR9W9C4yQIHMc8xsKwdB04t89/1O/w1cDnyilFU=';
    $channelSecret = '5a4a6b9b0cf3415b8071f4ffbe08fe3d';
-   $pushID = 'Ud168d219c6397f81416451f5ffc0b081';
 
    $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
    $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
