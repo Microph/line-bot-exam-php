@@ -4,7 +4,7 @@ require "vendor/autoload.php";
 
 $messagingType = "";
 $replyToken = "";
-$userID = "";
+$pushID = "";
 foreach ($_POST as $key => $value){
    file_put_contents("php://stderr", "post text from arduino key: " . $key . "\nvalue: " . $value . "\n");
    if($key == "messagingType")
@@ -13,7 +13,7 @@ foreach ($_POST as $key => $value){
    }
    else if($key == "userID")
    {
-      $userID = $value;
+      $pushID = $value;
    }
    else if($key == "replyToken")
    {
@@ -27,13 +27,14 @@ foreach ($_POST as $key => $value){
       }
       else
       {
-         send_push_message($value, $userID);
+         send_push_message($value, $pushID);
       }
    }
 }
 
 //Can only send to one specific account -> need database implementation to store pushIDs
 function send_push_message($msg, $pushID){
+   file_put_contents("php://stderr", "pushID: " . $pushID);
    $access_token = 'gfFXBM/EbegiS1D3eWlCV64GBADykoNE8YxuDepBcp1+YSqUcdYv0HU8Afzr2rq+qkBrbXF3h+auDA/qRS60wKIN4pcX+bGoc5FQOUWoERdjEHMOpljuKpEh1e2VmocNghJwLR9W9C4yQIHMc8xsKwdB04t89/1O/w1cDnyilFU=';
    $channelSecret = '5a4a6b9b0cf3415b8071f4ffbe08fe3d';
 
