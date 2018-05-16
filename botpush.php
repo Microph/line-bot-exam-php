@@ -6,7 +6,7 @@ $messagingType = "";
 $replyToken = "";
 $userID = "";
 foreach ($_POST as $key => $value){
-   //file_put_contents("php://stderr", "post text from arduino key: " . $key . "\nvalue: " . $value . "\n");
+   file_put_contents("php://stderr", "post text from arduino key: " . $key . "\nvalue: " . $value . "\n");
    if($key == "messagingType")
    {
       $messagingType = $value;
