@@ -33,8 +33,8 @@ foreach ($_POST as $key => $value){
 }
 
 //Can only send to one specific account -> need database implementation to store pushIDs
-function send_push_message($msg, $pushID){
-   file_put_contents("php://stderr", "pushID: " . $pushID);
+function send_push_message($msg, $blah){
+   $pushID = 'ud168d219c6397f81416451f5ffc0b081';
    $access_token = 'gfFXBM/EbegiS1D3eWlCV64GBADykoNE8YxuDepBcp1+YSqUcdYv0HU8Afzr2rq+qkBrbXF3h+auDA/qRS60wKIN4pcX+bGoc5FQOUWoERdjEHMOpljuKpEh1e2VmocNghJwLR9W9C4yQIHMc8xsKwdB04t89/1O/w1cDnyilFU=';
    $channelSecret = '5a4a6b9b0cf3415b8071f4ffbe08fe3d';
 
