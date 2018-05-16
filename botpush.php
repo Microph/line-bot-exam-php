@@ -41,7 +41,7 @@ function send_push_message($msg, $pushID){
    $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-   $response = $bot->pushMessage($pushID, $textMessageBuilder);
+   $response = $bot->pushMessage((string)$pushID, $textMessageBuilder);
 
    file_put_contents("php://stderr", "push message result: " . $response->getHTTPStatus() . ' ' . $response->getRawBody());
 }
