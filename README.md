@@ -1,4 +1,4 @@
-SitTooLong (Chulalongkorn's Computer Engineering Assistive Technoly Course of 2018 Mini Project)
+SitTooLong (Chulalongkorn's Computer Engineering Assistive Technology (Course of 2018) Mini Project)
 
 - Program for ESP8266 is located inside "ESP8266 SitTooLong Program" folder.
 - The server is deployed at https://sit-too-long.herokuapp.com/
